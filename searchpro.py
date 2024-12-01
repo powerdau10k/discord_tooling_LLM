@@ -73,6 +73,38 @@ def final_response(question,summaries,promptname):
     response = gemflash.generate_response(str(summaries))
     return response
 
+#def final_response(question,summaries,promptname="final_answer"):     
+#    with open(f"{promptname}.txt", "r") as f:
+#        existing_prompt = f.read()
+#    prompt = existing_prompt + question
+#    with open('final_answer.txt', 'w', encoding='utf-8') as f:
+#        f.write(prompt.strip())
+#    gemflash =  Geminiflash(f"{promptname}")
+#    response = gemflash.generate_response(str(summaries))
+#    # Read the lines of final_answer.txt
+#    with open('final_answer.txt', 'r') as f:
+#        lines = f.readlines()
+#    # Remove the last line and rewrite the file
+#    with open('final_answer.txt', 'w') as f:
+#        f.writelines(lines[:-1])
+#    return response
+
+
+def final_response(question,summaries,promptname="final_answer"):     
+    with open(f"sysprompts/{promptname}.txt", "r") as f:
+        existing_prompt = f.read()
+    prompt = existing_prompt + question
+    with open('sysprompts/final_answer.txt', 'w', encoding='utf-8') as f:
+        f.write(prompt.strip())
+    gemflash =  Geminiflash(f"{promptname}")
+    response = gemflash.generate_response(str(summaries))
+    # Read the lines of final_answer.txt
+    with open('sysprompts/final_answer.txt', 'r') as f:
+        lines = f.readlines()
+    # Remove the last line and rewrite the file
+    with open('sysprompts/final_answer.txt', 'w') as f:
+        f.writelines(lines[:-1])
+    return response
 
 async def get_facts(question):
     summaries = []

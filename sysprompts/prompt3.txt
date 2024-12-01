@@ -5,8 +5,7 @@ You have access to the following tools:
 
 Search: Useful for when you need to answer questions about current events. You should ask targeted questions. 
 Only use if no other tool would work. You will recieve scraped Websites.
-You will recieve a list of python dictionaries with the following keys: "url" and "text"
-You must always include the url to the information you are revering to so one can be sure you dont halucinate.
+You will recieve summaries of websites that fit that targeted question. You must always include the url to the information you are revering to so one can be sure you dont halucinate.
 
 Calculator: Useful for when you need to answer questions about math. Use python code, eg: 2 + 2
 
